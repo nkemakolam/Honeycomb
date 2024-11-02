@@ -1,0 +1,48 @@
+How system architecture impact reliability
+automatic scalling and graceful recovery from faults
+techniques to manage overload and 
+how you can build applications to support delebrate downgrade so least important request get ignored while the high value once get processed
+Observability help SRE team daignise problems in app
+discusss how to collect data and the right level and how to corrolate between the three piller of observability which are monitoring logging and traceing
+How servvice level drives continuos improvement in your product and processes.
+design SLO and make them central to the product so that the application performance and SRE team performance becomes part of the feedback loop.
+## SRE Back Log
+![alt text](image.png)
+## Principle of SRE
+there three 
+- Eliminating toil
+- Managing risk
+- Handling failure
+
+## How system Design impact SRE 
+The most important is dealing with a failure in SRE is Mitigation which is getting a failed system back
+into a running state as quikly as possible
+## Design for mitigation 
+  - Incident Step #1
+  - Remove investigation pressure
+## Design for failure scenarios 
+1. Scaling under high load 
+2. Managing Overload
+3. Introducing degradation which is when you delebratel degrade your system to reduce feature to avoid over load
+# scaling 
+  - this does  your system has a enough compute power 
+a simple SLO service level objective is to responded to 99.9% of every request within 2 second 
+while SLI service level indicator is recording how long it takes to processs each request. To solve this your sysetm acn use available resolution like 
+automatic scaling such as 
+1. containerise application can use auto scaling 
+2 servwerless service and cloud function can be set to auto scale on high demand using maximunm and minimun on demand scaling to also avoid over spending.
+
+### Automatic scaling key factors 
+- Scale event trigger
+- Instance startup time
+- New instance count 
+and for your application to benefit from this then it will have to be stateless and load balance your system
+Note for mutiple componenet application you need to load balance  balance across multiple level. eg for app running in different rejoin here is what you can do 
+# solution
+1.the first thing to do is DNS load balance across the rejoin 
+2. the IP address for the DNS would have to most likely be Virtual IP which resole to a network load balancer
+3. for multiple instance at the backend health check is very important to know which instance to send request to creating what we call Software Laod Balancing
+# Managing Demand with Scale
+
+
+

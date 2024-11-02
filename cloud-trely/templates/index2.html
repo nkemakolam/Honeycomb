@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-refresh Image and Video</title>
+    <style>
+        /* Ensure that both image and video have the same size and layout */
+        .media-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .media-frame {
+            width: 600px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #effadb;
+            border: 2px solid #fac7c7;
+        }
+        img, video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <script>
+        // Function to reload the media content every 20 seconds
+        function reloadMedia() {
+            setTimeout(function() {
+                window.location.reload();
+            }, 20000);  // Reloads the page every 20 seconds
+        }
+    </script>
+</head>
+<body onload="reloadMedia()">
+    <h1 style="text-align: center;">Our Memories</h1>
+
+    <div class="bg-success p-2 text-dark bg-opacity-25">
+
+    <div class="media-container">
+        <!-- Image container -->
+        <div class="media-frame">
+            {% if image_url %}
+            <img src="{{ image_url }}" alt="Image not available">
+            {% else %}
+            <p>No image available</p>
+            {% endif %}
+        </div>
+
+        <!-- Video container -->
+        <div class="media-frame">
+            {% if video_url %}
+            <video controls autoplay>
+                <source src="{{ video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% else %}
+            <p>No video available</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

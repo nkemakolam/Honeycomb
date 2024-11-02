@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Posts</h1>
+    <a href="/create" class="btn btn-primary">Create Post</a>
+    <a href="/logout" class="btn btn-danger">Logout</a>
+    <ul class="list-group mt-4">
+        {% for post in posts %}
+        <li class="list-group-item">
+            <h2><a href="/post/{{ post.id }}">{{ post.title }}</a></h2>
+            <p>{{ post.body }}</p>
+            <p>By: {{ post.user }}</p>
+            <a href="/like/{{ post.id }}" class="btn btn-sm btn-success">Like ({{ post.likes }})</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+#version: '3.8'
+
+services:
+  flask_app:
+    #container_name: fkapp
+    build: .
+    #args:
+       #PACKAGES: "nano wget curl"
+    ports:
+      - "5000"
+    # - "5000:5000"
+    volumes:
+      - ./static/media:/app/static/media
+    environment:
+      - FLASK_ENV=development
